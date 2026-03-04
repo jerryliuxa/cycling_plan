@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自行车路径规划（坡度优先）</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>🚴 自行车路径规划（UCI 坡度分级）</h1>
+      <p>点击地图设置起点和终点，系统将综合距离 + 坡度代价选择更适合骑行的路线。</p>
+    </header>
+
+    <section class="panel">
+      <div class="controls">
+        <button id="resetBtn" type="button">重置起终点</button>
+        <button id="planBtn" type="button" disabled>规划路线</button>
+      </div>
+      <div class="legend">
+        <h3>UCI 爬坡等级（按爬坡难度分值）</h3>
+        <ul>
+          <li>HC：≥ 240</li>
+          <li>1 级：160 - 239</li>
+          <li>2 级：80 - 159</li>
+          <li>3 级：40 - 79</li>
+          <li>4 级：20 - 39</li>
+          <li>非分类爬坡：&lt; 20</li>
+        </ul>
+      </div>
+      <div id="result" class="result">等待选择起点和终点…</div>
+    </section>
+
+    <main id="map"></main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
